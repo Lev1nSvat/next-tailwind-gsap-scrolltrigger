@@ -4,6 +4,7 @@ import gsap from 'gsap';
 
 function MyApp({ Component, pageProps }) {
   const el = useRef();
+  const q = gsap.utils.selector(el);  
   useEffect(()=> {
     gsap.from(el.current, {autoAlpha:0})
 
@@ -11,7 +12,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <div ref={el} className='invisible'>
-      <Component {...Component} el={el} />
+      <Component {...Component} el={el} q ={q} />
     </div>
   )
 }
